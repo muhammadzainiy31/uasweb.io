@@ -1,49 +1,86 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Membuat Kalkulator Sederhana</title>
-<link rel="stylesheet" href="style.css">
-<script src="script.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>mahasiswa</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <script src="js/jquery-3.4.1.min.js"></script>
 </head>
-</script type="text/javascript">
-       CALCULATOR 
-        Nama : Muhammad Zaini
-        NPM  : 19630120
-        Kelas: 3i Reg Malam BJM
 <body>
-<div class="calculator">
-    <FORM NAME="Calc">
-<input type="text" Name="Input" class="calculator-screen" disabled/>
-<div class="calculator-keys">
-<button type="button" NAME="plus" VALUE=" + " OnClick="Calc.Input.value += ' + '" class="operator" value="+">+</button>
-<button type="button" NAME="minus" VALUE=" - " OnClick="Calc.Input.value += ' - '" class="operator" value="-">-</button>
-<button type="button" NAME="sin" VALUE=" sin " OnClick="Calc.Input.value += ' / '" class="operator">&divide;</button>
-<button type="button" NAME="times" VALUE=" x " OnClick="Calc.Input.value += ' * '" class="operator" value="*">&times;</button>
-<button type="button" NAME="div" VALUE=" / " OnClick="Calc.Input.value += ' sin '" class="operator" value="sin">sin</button>
-<button type="button" NAME="div" VALUE=" / " OnClick="Calc.Input.value += ' cos '" class="operator" value="sin">cos</button>
-<button type="button" NAME="div" VALUE=" / " OnClick="Calc.Input.value += ' tan '" class="operator" value="sin">tan</button>
-<button type="button" NAME="seven" VALUE=" 7 " OnClick="Calc.Input.value += '7'" class="9">9</button> 
-<button type="button" NAME="eight" VALUE=" 8 " OnCLick="Calc.Input.value += '8'" class="8">8</button>
-<button type="button" NAME="nine" VALUE=" 9 " OnClick="Calc.Input.value += '9'" class="7">7</button> 
-<button type="button" NAME="four" VALUE=" 4 " OnClick="Calc.Input.value += '4'" class="6">6</button> 
-<button type="button" NAME="five" VALUE=" 5 " OnCLick="Calc.Input.value += '5'" class="5">5</button>     
-<button type="button" NAME="six" VALUE=" 6 " OnClick="Calc.Input.value += '6'" class="4">4</button>  
-<button type="button" NAME="one" VALUE=" 1 " OnClick="Calc.Input.value += '1'" class="3">3</button>
-<button type="button" NAME="two" VALUE=" 2 " OnCLick="Calc.Input.value += '2'" class="2">2</button>
-<button type="button" NAME="three" VALUE=" 3 " OnClick="Calc.Input.value += '3'" class="1">1</button>    
-<button type="button" NAME="zero" VALUE=" 0 " OnClick="Calc.Input.value += '0'" class="0">0</button>  
-<button type="button" NAME="decim" VALUE=" 0 " OnClick="Calc.Input.value += '.'" class="decimal">.</button>
-<button type="button" NAME="decim" VALUE=" 0 " OnClick="Calc.Input.value += '%'" class="%">%</button>
-<button type="button" NAME="decim" VALUE=" 0 " OnClick="Calc.Input.value = ''" class="one-clear">C</button>
-<button type="button" NAME="clear" VALUE=" c " OnClick="Calc.Input.value = ''" class="all-clear">AC</button>
-<button type="button" NAME="equal" VALUE=" = " OnClick="Calc.Input.value = eval(Calc.Input.value)" class="equal-sign operator">=</button>
-</div>
-</div>
+    
+    <div class="container col-md-6">
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                Input Data Mahasiswa
+            </div>
+            <div class="card-body">
+                <form action="" method="POST" class="form-item">
+                    <div class="form-group">
+                        <label for="npm">NPM</label>
+                      <input type="varchar(8)" name="npm" class="form-control col-md-9" placeholder="Masukkan NPM">
+                     </div>
+
+                     <div class="form-group">
+                        <label for="nama">Nama</label>
+                      <input type="varchar(100)" name="nama" class="form-control col-md-9" placeholder="Masukkan Nama">
+                     </div>
+
+                     <div class="form-group">
+                        <label for="tempat_lahir">Tempat Lahir</label>
+                      <input type="varchar(50)" name="tempat_lahir" class="form-control col-md-9" placeholder="Masukkan Tempat Lahir">
+                     </div>
+
+                     <div class="form-group">
+                        <label for="tanggal_lahir">Tanggal Lahir</label>
+                      <input type="date" name="tanggal_lahir" class="form-control col-md-9" placeholder="Masukkan Tanggal Lahir">
+                     </div>
+
+                     <div class="form-group">
+                        <label for="jenis_kelamin">Jenis Kelamin</label>
+                      <input type="enum('L','P')"name="jenis_kelamin" class="form-control col-md-9" placeholder="Masukkan Jenis Kelamin">
+                     </div>
+
+                     <div class="form-group">
+                        <label for="alamat">Alamat</label>
+                      <input type="text" name="alamat" class="form-control col-md-9" placeholder="Masukkan Alamat">
+                     </div>
+
+                     <div class="form-group">
+                        <label for="kode_pos">Kodepos</label>
+                      <input type="varchar(5)" name="kode_pos" class="form-control col-md-9" placeholder="Masukkan Kodepos">
+                     </div>
+
+                     <button type="submit" class="btn btn-primary" name="simpan">SIMPAN</button>
+                     <button type="reset" class="btn btn-danger">BATAL</button>
+        </form>
+        </div>
+        </div> 
+        </div>
 
 
-</form>
 </body>
 </html>
+
+<?php
+        include "koneksi.php";
+        if(isset($_POST['simpan']))
+        {
+            $npm      =$_POST['npm'];
+            $nama      =$_POST['nama'];
+            $tempat_lahir      =$_POST['tempat_lahir'];
+            $tanggal_lahir      =$_POST['tanggal_lahir'];
+            $jenis_kelamin      =$_POST['jenis_kelamin'];
+            $alamat      =$_POST['alamat'];
+            $kode_pos      =$_POST['kode_pos'];
+            
+            mysqli_query($koneksi, "INSERT INTO mahasiswa VALUES ('',
+                '$npm', '$nama', '$tempat_lahir', '$tanggal_lahir', '$jenis_kelamin', '$alamat', '$kode_pos'
+                )")or die (mysqli_error($koneksi));
+
+            echo "<div align='center'><h5> Silahkan Tunggu, Data Sedang Diproses...</h5></div>";
+            echo "<meta http-equiv='refresh' content='1;url=http://localhost/web/dt_mahasiswa.php'>";
+         }
+            
+?>
